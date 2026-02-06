@@ -6,6 +6,21 @@ The site is informational only. It does not use a backend server, database, or u
 
 ---
 
+## Semantic Versioning :mage:
+
+This project is going to utilize semantic versioning for its tagging.
+[semver.org](https://sember.org/)
+
+The general format:
+
+**MAJOR.MINOR.PATCH**, eg. `1.0.1`
+
+- **MAJOR** version when you make incompatible API changes
+- **MINOR** version when you add functionality in a backward compatible manner
+- **PATCH** version when you make backward compatible bug fixes
+
+---
+
 ## Purpose of the Site
 
 The website provides:
