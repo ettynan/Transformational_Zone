@@ -16,6 +16,10 @@ function ScrollToTop() {
     // Only scroll to top if there is no hash (anchors like #reflexology)
     if (!window.location.hash) {
       window.scrollTo({ top: 0, behavior: "auto" });
+
+      // Move keyboard focus to main content on route change
+      const main = document.getElementById("root");
+      main?.focus();
     }
   }, [location]);
 
