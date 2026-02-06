@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About" }
 ];
 
 export function Navigation() {
@@ -16,14 +15,11 @@ export function Navigation() {
   const [location] = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
@@ -33,9 +29,7 @@ export function Navigation() {
       aria-label="Primary"
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-stone-100",
-        scrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
-          : "bg-white py-5"
+        scrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-3" : "bg-white py-5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
@@ -45,7 +39,6 @@ export function Navigation() {
             <span className="text-primary font-normal">Zone</span>
           </Link>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {links.map((link) => (
               <Link
@@ -65,11 +58,10 @@ export function Navigation() {
               href="/contact"
               className="px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
             >
-              Book Session
+              Request Appointment
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
           <button
             type="button"
             aria-label="Toggle navigation menu"
@@ -83,7 +75,6 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {isOpen && (
         <div
           id="mobile-menu"
@@ -109,7 +100,7 @@ export function Navigation() {
                 href="/contact"
                 className="block w-full text-center py-3 rounded-lg bg-primary text-primary-foreground text-base font-medium hover:bg-primary/90 transition-all"
               >
-                Book Session
+                Request Appointment
               </Link>
             </div>
           </div>
