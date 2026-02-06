@@ -1,15 +1,43 @@
 # Transformational Zone Website
 
+**Author:** E. Tynan
+
 This repository contains the source code for the Transformational Zone website, a static client-side website for a small holistic wellness business offering Reflexology and Footzoning services.
 
 The site is informational only. It does not use a backend server, database, or user accounts.
 
 ---
 
+## Table of Contents
+
+- [Semantic Versioning](#semantic-versioning)
+- [Purpose of the Site](#purpose-of-the-site)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [How to Update Site Content (Non-Technical Guide)](#how-to-update-site-content-non-technical-guide)
+  - [Updating Homepage Text or Buttons](#updating-homepage-text-or-buttons)
+  - [Updating Services Descriptions or Prices](#updating-services-descriptions-or-prices)
+  - [Updating About Page Content](#updating-about-page-content)
+  - [Updating Contact Information](#updating-contact-information)
+  - [Updating Navigation Links](#updating-navigation-links)
+  - [Updating Footer Information](#updating-footer-information)
+  - [Updating Images](#updating-images)
+  - [Image Credits](#image-credits)
+- [Transformational Zone Company Website](#transformational-zone-company-website)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Building for Production](#building-for-production)
+- [Deployment](#deployment)
+- [Environment Variables](#environment-variables)
+- [Future Enhancements](#future-enhancements)
+
+---
+
 ## Semantic Versioning :mage:
 
 This project is going to utilize semantic versioning for its tagging.
-[semver.org](https://sember.org/)
+[semver.org](https://semver.org/)
 
 The general format:
 
@@ -27,7 +55,7 @@ The website provides:
 - An overview of the business and its wellness philosophy
 - Descriptions of offered services (Reflexology and Footzoning)
 - Pricing and package information
-- Contact information and a contact form UI
+- Contact information
 - Basic navigation between pages
 
 ---
@@ -75,7 +103,119 @@ client/
 ```
 ---
 
-## Transformational Zone Website
+## How to Update Site Content (Non-Technical Guide)
+
+This section explains where to go to make common updates without needing deep technical knowledge.
+
+### Updating Homepage Text or Buttons
+
+File:
+```bash
+client/src/pages/Home.tsx
+```
+You can update:
+
+1. The main headline text
+2. The short description under the headline
+3. Button text such as “Explore Services” or “Request Appointment”
+4. Introductory text about the business
+
+Look for clearly written text inside 
+```
+<h1> and <p> 
+```
+ and button labels.
+
+### Updating Services Descriptions or Prices
+
+File:
+```bash
+client/src/pages/Services.tsx
+```
+
+You can update:
+1. Service descriptions for Reflexology and Footzoning
+2. Session durations and prices
+3. Package prices and package descriptions
+
+Prices are grouped together in a pricing configuration near the top of the file, making them easier to change in one place.
+
+### Updating About Page Content
+File:
+```bash
+client/src/pages/About.tsx
+```
+
+Use this file to change:
+1. Business philosophy text
+2. Practitioner biography
+3. Certifications and experience
+4. Supporting images or quotes
+
+This page is text-heavy and safe to edit the text on.
+
+### Updating Contact Information
+File:
+```bash
+client/src/pages/Contact.tsx
+```
+
+Use this file to change:
+1. Address
+2. Phone number
+3. Email address
+4. Business hours
+5. Messaging about how to request an appointment
+
+The site currently does not send messages. It displays contact information only.
+
+### Updating Navigation Links
+File:
+```bash
+client/src/components/Navigation.tsx
+```
+
+Use this file to change:
+1. Top navigation labels
+2. Which pages appear in the menu
+3. The “Request Appointment” button text or destination
+
+### Updating Footer Information
+File:
+```bash
+client/src/components/Footer.tsx
+```
+
+Use this file to change:
+1. Footer text
+2. Address and contact details
+3. Footer navigation links
+4. Photo credits 
+
+### Updating Images
+Folder:
+```bash
+client/public/images/
+```
+
+To change an image:
+1. Replace the image file in this folder
+2. Keep the same filename or update the image path in the page file
+
+### Image Credits
+All images used on this site were sourced from royalty-free photography platforms.
+
+Images are used in accordance with the respective platform licenses, which allow free use for commercial and non-commercial projects without attribution.
+
+- Rock on the Ground by Benjamin Nguyen — https://unsplash.com/@another_passenger717 — https://unsplash.com/photos/a-rock-on-the-ground-TPhn7vWOlHs
+- Seashore during golden hour by Sean Oulashin — https://unsplash.com/@oulashin — https://unsplash.com/photos/seashore-during-golden-hour-KMn4VEeEPR8
+- Zen sand and water image by krzhck — https://unsplash.com/@krzhck — https://unsplash.com/photos/BdCCmdzgV90
+- A blue butterfly with orange markings rests on the ground by Thomas Elliott — https://unsplash.com/@thomaselliott — https://unsplash.com/photos/bBG9h5OO7Ck
+- A sandy beach with waves coming in to shore by Karin Kim — https://unsplash.com/@karinkim — https://unsplash.com/photos/l4AWZ5QhyDk
+- Stones, Balance, Meditation by Martin Baumann https://pixabay.com/photos/stones-balance-meditation-quiet-10016267/
+
+---
+## Transformational Zone Company Website
 
 Transformational Zone is a modern, responsive wellness-focused website built with React and Vite. The project is structured as a front-end application with an emphasis on maintainability, accessibility, and scalability for future enhancements.
 
@@ -132,7 +272,7 @@ The application will automatically reload as changes are made.
 ---
 
 ## Available Scripts
-  Starts the local development server.
+Starts the local development server.
 
 ```bash
     npm run dev  
@@ -169,6 +309,7 @@ The contents of the dist/ directory can be deployed to any static hosting provid
 - Vercel
 - Cloudflare Pages
 - GitHub Pages
+- GoDaddy
 - Traditional web hosting providers
 
 ### General Deployment Steps
@@ -193,12 +334,6 @@ If environment-specific configuration is added in the future, Vite supports the 
 - .env for default values
 - .env.local for local overrides (not committed)
 - .env.production for production-specific values
-
----
-
-## Project Structure
-
-The project is organized to support modular UI components, a clear separation of concerns, and future integration with backend services or a CMS.
 
 ---
 
