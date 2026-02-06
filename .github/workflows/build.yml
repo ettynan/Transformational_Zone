@@ -1,0 +1,38 @@
+# This workflow verifies that the application builds successfully.
+#
+# Purpose:
+# - Ensure the project can be built in a clean environment
+# - Catch broken imports, build-time errors, or misconfigurations
+# - Does NOT deploy or publish artifacts
+
+name: Build Check
+
+# Triggers:
+# - Any pull request
+# - Any push to the main branch
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    # Use the latest Ubuntu runner provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js with npm caching
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Step 3: Install dependencies using a clean, reproducible install
+      - run: npm ci
+
+      # Step 4: Run the production build (Vite)
+      # This ensures the app can be bundled successfully
+      - run: npm run build

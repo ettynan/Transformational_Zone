@@ -1,0 +1,39 @@
+# This workflow runs TypeScript type checking on every push to main
+# and on every pull request.
+#
+# Purpose:
+# - Ensure the codebase has no TypeScript type errors
+# - Catch issues early before merging
+# - Does NOT emit files or affect runtime behavior
+
+name: TypeScript Type Check
+
+# Triggers:
+# - Any pull request
+# - Any push to the main branch
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  typecheck:
+    # Use the latest Ubuntu runner provided by GitHub
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - uses: actions/checkout@v4
+
+      # Step 2: Set up Node.js with npm caching for faster installs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      # Step 3: Install dependencies exactly as defined in package-lock.json
+      - run: npm ci
+
+      # Step 4: Run TypeScript in type-checking mode only
+      # This uses "tsc --noEmit" via the npm script
+      - run: npm run typecheck
