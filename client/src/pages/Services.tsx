@@ -9,13 +9,29 @@ import { motion } from "framer-motion";
  * Change prices/durations HERE ONLY
  */
 const PRICING = {
-  reflexology: {
-    price: 85,
+  reiki: {
+    price: 95,
+    distance_price: 95,
     duration: 60,
   },
   footzoning: {
-    price: 110,
-    duration: 75,
+    price: 95,
+    inhome_price: 150,
+    duration: "60 - 75",
+  },
+  sauna: {
+    price: 30,
+    combo_price: 125,
+    duration: 30,
+    combo_duration: "90-105"
+  },
+  specials: {
+    birthday_example: 30,
+    recovery_example: 20,
+  },
+  addons: {
+    massager_price: 15,
+    massager_duration: 15,
   },
   packages: {
     introductory: {
@@ -71,9 +87,9 @@ export default function Services() {
 
         <div className="container mx-auto px-4 py-16 md:py-24">
 
-          {/* Reflexology */}
+          {/* Reiki */}
           <section
-            id="reflexology"
+            id="reiki"
             tabIndex={-1}
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 scroll-mt-32"
           >
@@ -87,20 +103,20 @@ export default function Services() {
                 Restoration
               </span>
               <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
-                Reflexology
+                Reiki
               </h2>
               <p className="text-stone-600 leading-relaxed mb-6">
-                Reflexology is a focused pressure technique based on the premise that there are zones and reflexes on different parts of the feet which correspond to all parts, glands, and organs of the entire body.
+                Reiki is a gentle energy healing technique based on the premise that a practitioner can channel universal energy to support balance and well-being throughout the body.
               </p>
               <p className="text-stone-600 leading-relaxed mb-6">
-                By applying pressure to these specific points, reflexology can reduce tension, improve circulation, and support the body's natural function. It is deeply relaxing and can be an effective way to alleviate stress.
+                Through light touch or hands placed just above the body, Reiki promotes deep relaxation, helps reduce stress, and supports the body’s natural healing processes. It is calming, non-invasive, and suitable for all ages.
               </p>
               <ul className="space-y-2 mb-8">
                 {[
-                  "Improves circulation",
+                  "Promotes deep relaxation",
                   "Reduces stress and anxiety",
-                  "Stimulates nerve function",
-                  "Boosts energy levels",
+                  "Supports emotional balance",
+                  "Encourages natural healing",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center text-stone-700">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
@@ -109,10 +125,13 @@ export default function Services() {
                 ))}
               </ul>
               <p className="text-xl font-heading text-stone-800">
-                ${PRICING.reflexology.price}{" "}
+                ${PRICING.reiki.price}{" "}
                 <span className="text-sm font-sans text-stone-500 font-normal">
-                  / {PRICING.reflexology.duration} minutes
+                  / {PRICING.reiki.duration} minutes
                 </span>
+              </p>
+              <p className="text-stone-800 text-base mt-4">
+               Distance Reiki (includes phone call or emailed report) - ${PRICING.reiki.distance_price}
               </p>
             </motion.div>
 
@@ -132,7 +151,7 @@ export default function Services() {
             </motion.div>
           </section>
 
-          {/* Footzoning */}
+          {/* Foot Zone */}
           <section
             id="footzoning"
             tabIndex={-1}
@@ -161,7 +180,7 @@ export default function Services() {
                 Balance
               </span>
               <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
-                Footzoning
+                Foot Zone
               </h2>
               <p className="text-stone-600 leading-relaxed mb-6">
                 Footzoning is a precise and intricate method of treating the physical, mental, and emotional body through the signal system in the feet.
@@ -188,8 +207,116 @@ export default function Services() {
                   / {PRICING.footzoning.duration} minutes
                 </span>
               </p>
+              <p className="text-stone-800 text-base mt-4">
+                In-Home Foot Zone (within 20 miles of Kenmore) - ${PRICING.footzoning.inhome_price}
+              </p>
             </motion.div>
           </section>
+
+          {/* Steam Sauna */}
+          <section
+            id="sauna"
+            tabIndex={-1}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 scroll-mt-32"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="order-2 lg:order-1"
+            >
+              <span className="text-primary font-semibold tracking-wider text-sm uppercase mb-2 block">
+                Renewing
+              </span>
+              <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
+                Steam Sauna
+              </h2>
+              <p className="text-stone-600 leading-relaxed mb-6">
+                Steam Sauna therapy is a heat-based treatment that uses warm steam to open pores, promote sweating, and support the body’s natural detoxification processes.
+              </p>
+              <p className="text-stone-600 leading-relaxed mb-6">
+                The moist heat helps relax muscles, improve circulation, and ease tension while creating a calming, restorative environment. It can be both invigorating and deeply soothing, making it an effective way to reset.
+              </p>
+              <ul className="space-y-2 mb-8">
+                {[
+                  "Relieves muscle tension",
+                  "Improves circulation",
+                  "Calms the nervous system",
+                  "Supports relaxation",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center text-stone-700">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary mr-3" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xl font-heading text-stone-800">
+                ${PRICING.sauna.price}{" "}
+                <span className="text-sm font-sans text-stone-500 font-normal">
+                  / {PRICING.sauna.duration} minutes
+                </span>
+              </p>
+              <p className="text-stone-800 text-base mt-4">
+                Combined with Foot Zone ({PRICING.sauna.combo_duration} mins) - ${PRICING.sauna.combo_price}
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="order-1 lg:order-2"
+            >
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-xl bg-stone-200">
+                <img
+                  src="/images/zen-sand-replacement.jpg"
+                  alt="Smooth stones resting in sand, representing relaxation and grounding"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </section>
+          
+         {/* Specials & Add-Ons */}
+          <section
+            id="specials"
+            tabIndex={-1}
+            className="mt-16 mb-24 max-w-4xl mx-auto scroll-mt-32"
+          >
+            <SectionHeader
+              title="Specials & Add-Ons"
+              subtitle="A Little Something Extra"
+              centered
+              className="mb-8"
+            />
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-stone-100">
+              <div className="space-y-8">
+
+                <div className="border-b border-stone-100 pb-8">
+                  <h3 className="font-heading text-3xl text-stone-800 mb-4">Specials</h3>
+                  <div className="flex justify-between items-center mb-3">
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Your birthday age = your price</p>
+                    <p className="ffont-heading text-primary text-xl ml-8 shrink-0">(ex: 30th birthday = ${PRICING.specials.birthday_example})</p>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Years of recovery = your price</p>
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">(ex: 20 years of recovery = ${PRICING.specials.recovery_example})</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="font-heading text-3xl text-stone-800 mb-4">Add-Ons</h3>
+                  <div className="flex justify-between items-center">
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Med Foot Massager - {PRICING.addons.massager_duration} mins</p>
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">+${PRICING.addons.massager_price}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+          
 
           {/* Packages */}
           <section

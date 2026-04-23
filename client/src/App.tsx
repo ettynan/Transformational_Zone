@@ -13,7 +13,7 @@ function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
-    // Only scroll to top if there is no hash (anchors like #reflexology)
+    // Only scroll to top if there is no hash (anchors like #reiki)
     if (!window.location.hash) {
       window.scrollTo({ top: 0, behavior: "auto" });
 

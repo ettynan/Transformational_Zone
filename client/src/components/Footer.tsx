@@ -12,7 +12,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-stone-600 leading-relaxed text-sm">
-              Restoring balance and harmony through the ancient art of reflexology and footzoning. Find your path to wellness.
+              Restoring balance and harmony through the ancient art of reiki and footzoning. Find your path to wellness.
             </p>
           </div>
 
@@ -21,8 +21,9 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-3 text-stone-600 text-sm">
-              <li><a href="/services#reflexology">Reflexology</a></li>
+              <li><a href="/services#reiki">Reiki</a></li>
               <li><a href="/services#footzoning">Footzoning</a></li>
+              <li><a href="/services#sauna">Steam Sauna</a></li>
               <li><a href="/services#packages">Packages</a></li>
             </ul>
           </div>

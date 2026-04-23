@@ -18,5 +18,14 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    allowedHosts: [
+      '.ngrok-free.dev',
+      '.ngrok.io',
+      '.ngrok-free.app'
+    ]
   }
 });
