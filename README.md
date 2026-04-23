@@ -77,7 +77,7 @@ The website provides:
 ```text
 client/
 ├─ public/
-│  └─ images/                 Locally stored images used throughout the site
+│  └─ images/                       Locally stored images used throughout the site
 │
 ├─ src/
 │  ├─ components/
