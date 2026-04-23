@@ -81,25 +81,26 @@ client/
 │
 ├─ src/
 │  ├─ components/
-│  │  ├─ Navigation.tsx       Top navigation bar
-│  │  ├─ Footer.tsx           Footer with site links and contact info
-│  │  ├─ SectionHeader.tsx    Reusable section heading component
-│  │  └─ ui/                  Shared UI primitives (buttons, inputs, etc.)
+│  │  ├─ Navigation.tsx             Top navigation bar
+│  │  ├─ Footer.tsx                 Footer with site links and contact info
+│  │  ├─ SectionHeader.tsx          Reusable section heading component
+│  │  ├─ TestimonialCarousel.tsx    Rotating testimonial display for homepage
+│  │  └─ ui/                        Shared UI primitives (buttons, inputs, etc.)
 │  │
 │  ├─ pages/
-│  │  ├─ Home.tsx             Landing page
-│  │  ├─ Services.tsx         Services and pricing page
-│  │  ├─ About.tsx            About the business
-│  │  ├─ Contact.tsx          Contact information and form UI
-│  │  └─ not-found.tsx        404 page
+│  │  ├─ Home.tsx                    Landing page
+│  │  ├─ Services.tsx                Services and pricing page
+│  │  ├─ About.tsx                   About the business
+│  │  ├─ Contact.tsx                 Contact information and form UI
+│  │  └─ not-found.tsx               404 page
 │  │
-│  ├─ lib/                    Shared utilities and helpers
+│  ├─ lib/                            Shared utilities and helpers
 │  │
-│  ├─ App.tsx                 Application routing
-│  └─ main.tsx                Application entry point
+│  ├─ App.tsx                        Application routing
+│  └─ main.tsx                       Application entry point
 │
-├─ index.html                 Base HTML template
-└─ vite.config.ts             Vite configuration
+├─ index.html                         Base HTML template
+└─ vite.config.ts                     Vite configuration
 ```
 ---
 
@@ -119,12 +120,25 @@ You can update:
 2. The short description under the headline
 3. Button text such as “Explore Services” or “Request Appointment”
 4. Introductory text about the business
+5. Customer testimonials displayed in the rotating testimonial carousel
+
 
 Look for clearly written text inside 
 ```
 <h1> and <p> 
 ```
  and button labels.
+
+The testimonial carousel is implemented as a separate component:
+
+client/src/components/TestimonialCarousel.tsx
+
+This component controls:
+- The testimonial text content
+- The rotation timing between testimonials
+- The fade animation behavior
+
+To update testimonials, edit the testimonial array at the top of that file.
 
 ### Updating Services Descriptions or Prices
 
