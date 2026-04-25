@@ -16,8 +16,9 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: path.resolve(__dirname, "dist"),
-    emptyOutDir: true
+  target: ["safari13", "es2018"],
+  outDir: path.resolve(__dirname, "dist"),
+  emptyOutDir: true
   },
   server: {
     host: '0.0.0.0',
@@ -25,7 +26,8 @@ export default defineConfig({
     allowedHosts: [
       '.ngrok-free.dev',
       '.ngrok.io',
-      '.ngrok-free.app'
+      '.ngrok-free.app',
+      '.trycloudflare.com'
     ]
   }
 });

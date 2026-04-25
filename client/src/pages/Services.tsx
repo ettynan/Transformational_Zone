@@ -232,7 +232,7 @@ export default function Services() {
                 Steam Sauna
               </h2>
               <p className="text-stone-600 leading-relaxed mb-6">
-                Steam Sauna therapy is a heat-based treatment that uses warm steam to open pores, promote sweating, and support the body’s natural detoxification processes.
+                Steam Sauna therapy is a heat-based treatment that uses warm steam to open pores, promote sweating, and support the body’s natural healing processes.
               </p>
               <p className="text-stone-600 leading-relaxed mb-6">
                 The moist heat helps relax muscles, improve circulation, and ease tension while creating a calming, restorative environment. It can be both invigorating and deeply soothing, making it an effective way to reset.
@@ -297,7 +297,7 @@ export default function Services() {
                   <h3 className="font-heading text-3xl text-stone-800 mb-4">Specials</h3>
                   <div className="flex justify-between items-center mb-3">
                     <p className="font-heading text-primary text-xl ml-8 shrink-0">Your birthday age = your price</p>
-                    <p className="ffont-heading text-primary text-xl ml-8 shrink-0">(ex: 30th birthday = ${PRICING.specials.birthday_example})</p>
+                    <p className="font-heading text-primary text-xl ml-8 shrink-0">(ex: 30th birthday = ${PRICING.specials.birthday_example})</p>
                   </div>
                   <div className="flex justify-between items-center">
                     <p className="font-heading text-primary text-xl ml-8 shrink-0">Years of recovery = your price</p>
