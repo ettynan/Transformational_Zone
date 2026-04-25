@@ -2,7 +2,7 @@
 
 **Author:** E. Tynan
 
-This repository contains the source code for the Transformational Zone website, a static client-side website for a small holistic wellness business offering Reflexology and Footzoning services.
+This repository contains the source code for the Transformational Zone website, a static client-side website for a small holistic wellness business offering Reiki and Footzoning services.
 
 The site is informational only. It does not use a backend server, database, or user accounts.
 
@@ -53,7 +53,7 @@ The general format:
 
 The website provides:
 - An overview of the business and its wellness philosophy
-- Descriptions of offered services (Reflexology and Footzoning)
+- Descriptions of offered services (Reiki, Footzoning, Sauna, etc.)
 - Pricing and package information
 - Contact information
 - Basic navigation between pages
@@ -148,7 +148,7 @@ client/src/pages/Services.tsx
 ```
 
 You can update:
-1. Service descriptions for Reflexology and Footzoning
+1. Service descriptions for Reiki, Footzoning, and Steam Sauna
 2. Session durations and prices
 3. Package prices and package descriptions
 
@@ -350,6 +350,33 @@ If environment-specific configuration is added in the future, Vite supports the 
 - .env.production for production-specific values
 
 ---
+
+## Previewing the Site on a Phone (Cloudflare Tunnel)
+To view the site on a mobile device without deploying, use a Cloudflare Tunnel.
+
+#### Install Cloudflare Tunnel
+
+On macOS (Homebrew):
+```bash
+brew install cloudflare/cloudflare/cloudflared
+```
+
+Verify Installation
+```bash
+cloudflared --version
+```
+Run the Tunnel
+1. Start the development server:
+```bash
+   npm run dev
+   ```
+2. In a new terminal, run:
+```bash
+    cloudflared tunnel --url http://localhost:5173
+```
+3. Open the generated URL (e.g. https://xxxx.trycloudflare.com) on your phone or desktop.
+
+___
 
 ## Future Enhancements
 
