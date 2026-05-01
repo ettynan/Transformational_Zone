@@ -58,7 +58,7 @@ export function Footer() {
           </div>
         </nav>
 
-        <div className="border-t border-stone-200 pt-8 text-xs text-stone-500 text-center">
+        <div className="border-t border-stone-200 pt-8 text-xs text-stone-600 text-center">
           <p>&copy; {new Date().getFullYear()} Transformational Zone. All rights reserved.</p>
         </div>
       </div>
