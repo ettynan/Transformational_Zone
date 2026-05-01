@@ -16,31 +16,47 @@ const testimonials = [
 
 export function TestimonialCarousel() {
   const [index, setIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
-    if (testimonials.length <= 1) return;
+    if (testimonials.length <= 1 || isPaused) return;
+
     const timer = setInterval(() => {
       setIndex((i) => (i + 1) % testimonials.length);
-    }, 9000);
+    }, 7000);
+
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused]);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={index}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1.5 }}
+    <div className="flex items-start gap-6">
+      <div className="flex-1">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5 }}
+          >
+            <p className="text-stone-600 text-lg leading-relaxed italic mb-4">
+              "{testimonials[index].quote}"
+            </p>
+            <p className="text-stone-500 text-sm tracking-wide">
+              — {testimonials[index].name}, {testimonials[index].location}
+            </p>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => setIsPaused((paused) => !paused)}
+        aria-pressed={isPaused}
+        className="shrink-0 rounded-full border border-stone-500 bg-white px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-800"
       >
-        <p className="text-stone-600 text-lg leading-relaxed italic mb-4">
-          "{testimonials[index].quote}"
-        </p>
-        <p className="text-stone-500 text-sm tracking-wide">
-          — {testimonials[index].name}, {testimonials[index].location}
-        </p>
-      </motion.div>
-    </AnimatePresence>
+        {isPaused ? ">" : "II"}
+      </button>
+    </div>
   );
 }

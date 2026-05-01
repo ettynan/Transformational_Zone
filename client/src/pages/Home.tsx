@@ -66,7 +66,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 1 }}
             className="absolute bottom-8 left-1/2 z-10 w-full max-w-4xl -translate-x-1/2 px-4"
           >
-          <div className="h-[240px] p-6 overflow-hidden">
+          <div className="min-h-[240px] p-6">
                 <TestimonialCarousel />
             </div>
           </motion.div>

@@ -387,3 +387,13 @@ Potential future improvements include:
 - Authentication and user accounts
 - SEO optimization
 - Analytics integration
+
+## Accessibility Notes
+
+- Added a pause button for the reviews carousel.
+- Fixed copywrite contrast.
+- Automated accessibility scan completed.
+- WAVE reported 0 Errors.
+- Remaining issues include contrast findings in low-glare design areas.
+- Essential navigation, contact, booking/action links, and carousel controls were reviewed separately.
+- Known design tradeoff: some non-essential text areas intentionally use softer contrast for visual tone.
