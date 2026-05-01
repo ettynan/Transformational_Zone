@@ -64,12 +64,18 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
-            className="absolute bottom-8 left-1/2 z-10 w-full max-w-4xl -translate-x-1/2 px-4"
+            className="hidden lg:block absolute bottom-8 left-1/2 z-10 w-full max-w-4xl -translate-x-1/2 px-4"
           >
-          <div className="min-h-[240px] p-6">
-                <TestimonialCarousel />
+            <div className="p-6">
+              <TestimonialCarousel />
             </div>
           </motion.div>
+        </section>
+
+        <section className="lg:hidden bg-stone-50 px-4 py-8">
+          <div className="mx-auto max-w-4xl rounded-3xl bg-white p-6 shadow-sm border border-stone-100">
+            <TestimonialCarousel />
+          </div>
         </section>
 
         <section className="py-24 bg-white">
@@ -117,7 +123,7 @@ export default function Home() {
                   className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all border border-stone-100"
                 >
                   <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6 text-primary">
-                    <Sparkles className="w-7 h-7" />
+                    <Sparkles className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-heading font-medium mb-3">Reiki</h3>
                   <p className="text-stone-600 font-medium mb-6 leading-relaxed">
@@ -132,7 +138,7 @@ export default function Home() {
                   className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all border border-stone-100"
                 >
                   <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6 text-primary">
-                    <Footprints className="w-7 h-7" />
+                    <Footprints className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-heading font-medium mb-3">Footzoning</h3>
                   <p className="text-stone-600 font-medium mb-6 leading-relaxed">
@@ -147,7 +153,7 @@ export default function Home() {
                   className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all border border-stone-100"
                 >
                   <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6 text-primary">
-                    <Flame className="w-7 h-7" />
+                    <Flame className="w-7 h-7" aria-hidden="true" />
                   </div>
                   <h3 className="text-2xl font-heading font-medium mb-3">Steam Sauna</h3>
                   <p className="text-stone-600 font-medium mb-6 leading-relaxed">

@@ -10,7 +10,7 @@ export default function About() {
         <header className="bg-stone-100 pt-32 pb-16 md:pt-40 md:pb-24">
           <div className="container mx-auto px-4 text-center">
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-stone-800 mb-4">About Us</h1>
-            <p className="text-stone-500 text-lg max-w-2xl mx-auto">Our philosophy and approach to natural healing.</p>
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">Our philosophy and approach to natural healing.</p>
           </div>
         </header>
         <div className="container mx-auto px-4 py-16 md:py-24">
@@ -48,7 +48,7 @@ export default function About() {
             </section>
             <section aria-labelledby="healing-quote" className="text-center bg-stone-300 text-white p-12 rounded-3xl shadow-lg">
               <h2 id="healing-quote" className="font-heading text-3xl mb-4 leading-relaxed">“The natural healing force within each of us is the greatest force in getting well.”</h2>
-              <p className="text-stone-100 text-lg tracking-wide">— Hippocrates</p>
+              <p className="text-stone-600 text-lg tracking-wide">— Hippocrates</p>
             </section>
           </div>
         </div>
