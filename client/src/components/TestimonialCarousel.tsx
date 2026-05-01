@@ -8,9 +8,9 @@ const testimonials = [
     location: "West Jordan, UT",
   },
   {
-    quote: "This is a placeholder review. More testimonials coming soon.",
-    name: "Jane Doe",
-    location: "Anytown, USA",
+    quote: "Reiki with Donna - first session ever! My energy after our session was changed. As someone who lives with chronic pain and is in touch with the energy flow within my body. It was so worth it!! We worked on moving stagnant energy and touched on negative problems in life. Afterward, we talked about what messages she received. Can’t recommend working with Donna more. Her space in Kenmore has wonderful healing and relaxing energy. As does Donna. I will absolutely be going back for future sessions.",
+    name: "Laura",
+    location: "US",
   },
 ];
 
