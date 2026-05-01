@@ -79,14 +79,13 @@ export default function Services() {
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl text-stone-800 mb-4">
               Our Services
             </h1>
-            <p className="text-stone-500 text-lg max-w-2xl mx-auto">
+            <p className="text-stone-600 text-lg max-w-2xl mx-auto">
               Holistic treatments designed to restore your natural rhythm.
             </p>
           </div>
         </header>
 
         <div className="container mx-auto px-4 py-16 md:py-24">
-
           {/* Reiki */}
           <section
             id="reiki"
@@ -131,7 +130,7 @@ export default function Services() {
                 </span>
               </p>
               <p className="text-stone-800 text-base mt-4">
-               Distance Reiki (includes phone call or emailed report) - ${PRICING.reiki.distance_price}
+                Distance Reiki (includes phone call or emailed report) - ${PRICING.reiki.distance_price}
               </p>
             </motion.div>
 
@@ -276,8 +275,8 @@ export default function Services() {
               </div>
             </motion.div>
           </section>
-          
-         {/* Specials & Add-Ons */}
+
+          {/* Specials & Add-Ons */}
           <section
             id="specials"
             tabIndex={-1}
@@ -290,33 +289,51 @@ export default function Services() {
               className="mb-8"
             />
 
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-stone-100">
+            <div className="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-stone-100">
               <div className="space-y-8">
-
                 <div className="border-b border-stone-100 pb-8">
-                  <h3 className="font-heading text-3xl text-stone-800 mb-4">Specials</h3>
-                  <div className="flex justify-between items-center mb-3">
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Your birthday age = your price</p>
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">(ex: 30th birthday = ${PRICING.specials.birthday_example})</p>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Years of recovery = your price</p>
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">(ex: 20 years of recovery = ${PRICING.specials.recovery_example})</p>
+                  <h3 className="font-heading text-3xl text-stone-800 mb-4">
+                    Specials
+                  </h3>
+
+                  <div className="space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6">
+                      <p className="font-heading text-primary text-xl">
+                        Your birthday age = your price
+                      </p>
+                      <p className="font-heading text-primary text-lg sm:text-xl sm:text-right">
+                        ex: 30th birthday = ${PRICING.specials.birthday_example}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6">
+                      <p className="font-heading text-primary text-xl">
+                        Years of recovery = your price
+                      </p>
+                      <p className="font-heading text-primary text-lg sm:text-xl sm:text-right">
+                        ex: 20 years of recovery = ${PRICING.specials.recovery_example}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="font-heading text-3xl text-stone-800 mb-4">Add-Ons</h3>
-                  <div className="flex justify-between items-center">
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">Med Foot Massager - {PRICING.addons.massager_duration} mins</p>
-                    <p className="font-heading text-primary text-xl ml-8 shrink-0">+${PRICING.addons.massager_price}</p>
+                  <h3 className="font-heading text-3xl text-stone-800 mb-4">
+                    Add-Ons
+                  </h3>
+
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6">
+                    <p className="font-heading text-primary text-xl">
+                      Med Foot Massager - {PRICING.addons.massager_duration} mins
+                    </p>
+                    <p className="font-heading text-primary text-lg sm:text-xl sm:text-right">
+                      +${PRICING.addons.massager_price}
+                    </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </section>
-          
 
           {/* Packages */}
           <section
@@ -381,7 +398,6 @@ export default function Services() {
               </div>
             </div>
           </section>
-
         </div>
       </main>
 
