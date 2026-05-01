@@ -27,4 +27,4 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           # The 'urls' and 'startServerCommand' are handled inside .lighthouserc.js
-          configPath: "./.lighthouserc.js"
+          configPath: ".lighthouserc.js"
