@@ -8,11 +8,11 @@ export function Footer() {
           <div>
             <Link href="/">
               <span className="font-heading text-2xl font-bold text-stone-800">
-                Transformational<span className="text-primary font-normal">Zone</span>
+                Transformational<span className="text-primary font-normal">Zone, LLC</span>
               </span>
             </Link>
             <p className="mt-4 text-stone-600 leading-relaxed text-sm">
-              Restoring balance and harmony through the ancient art of reiki and footzoning. Find your path to wellness.
+              Restoring balance and harmony through the ancient arts of Foot Zone and Reiki. Find your path to wellness.
             </p>
           </div>
 
@@ -21,8 +21,8 @@ export function Footer() {
               Services
             </h4>
             <ul className="space-y-3 text-stone-600 text-sm">
+              <li><a href="/services#footzoning">Foot Zone</a></li>
               <li><a href="/services#reiki">Reiki</a></li>
-              <li><a href="/services#footzoning">Footzoning</a></li>
               <li><a href="/services#sauna">Steam Sauna</a></li>
               <li><a href="/services#packages">Packages</a></li>
             </ul>

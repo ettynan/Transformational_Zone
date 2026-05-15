@@ -4,13 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     quote: "I had a distance Reiki session with Donna on a day I was feeling pretty under the weather with a 24-hour flu. I went in mostly hoping for a little support and was pleasantly surprised by how much lighter and more energized I felt afterward. Even though my body was still processing being sick, my energy and clarity for the rest of the day were noticeably better. The session felt calming and supportive, and it was clear a lot of care and intention went into it. I'm very grateful for the boost and would happily book again.",
-    name: "Andrea Lain",
-    location: "West Jordan, UT",
+    name: "Andrea",
+    location: "Salt Lake City, UT",
   },
   {
     quote: "Reiki with Donna - first session ever! My energy after our session was changed. As someone who lives with chronic pain and is in touch with the energy flow within my body. It was so worth it!! We worked on moving stagnant energy and touched on negative problems in life. Afterward, we talked about what messages she received. Can’t recommend working with Donna more. Her space in Kenmore has wonderful healing and relaxing energy. As does Donna. I will absolutely be going back for future sessions.",
     name: "Laura",
-    location: "US",
+    location: "Seattle, WA",
   },
 ];
 
