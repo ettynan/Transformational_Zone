@@ -41,7 +41,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto font-semibold leading-relaxed">
-                Experience the healing power of Reiki and Footzoning in a sanctuary designed for your relaxation.
+                Experience the healing power of Foot Zone and/or Reiki in a sanctuary designed for your relaxation.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -89,7 +89,7 @@ export default function Home() {
                 </p>
 
                 <p className="text-stone-600 text-lg leading-relaxed mb-8">
-                  Through the specialized therapies of Reiki, Steam Sauna, and Footzoning, we help stimulate your body's natural healing abilities.
+                  Through the specialized therapy of Foot Zone, Reiki, and Steam Sauna, we help stimulate your body's natural healing abilities.
                 </p>
 
                 <Link href="/about">
@@ -123,11 +123,11 @@ export default function Home() {
                   className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all border border-stone-100"
                 >
                   <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6 text-primary">
-                    <Sparkles className="w-7 h-7" aria-hidden="true" />
+                    <Footprints className="w-7 h-7" aria-hidden="true" />
                   </div>
-                  <h3 className="text-2xl font-heading font-medium mb-3">Reiki</h3>
+                  <h3 className="text-2xl font-heading font-medium mb-3">Foot Zone</h3>
                   <p className="text-stone-600 font-medium mb-6 leading-relaxed">
-                    An energy healing practice, hands-on or distance, working with the body's life force energy.
+                    A holistic method that maps the entire body onto the feet, treating the physical, mental, and emotional body.
                   </p>
                 </motion.div>
 
@@ -138,11 +138,11 @@ export default function Home() {
                   className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all border border-stone-100"
                 >
                   <div className="w-14 h-14 bg-stone-100 rounded-full flex items-center justify-center mb-6 text-primary">
-                    <Footprints className="w-7 h-7" aria-hidden="true" />
+                    <Sparkles className="w-7 h-7" aria-hidden="true" />
                   </div>
-                  <h3 className="text-2xl font-heading font-medium mb-3">Footzoning</h3>
+                  <h3 className="text-2xl font-heading font-medium mb-3">Reiki</h3>
                   <p className="text-stone-600 font-medium mb-6 leading-relaxed">
-                    A holistic method that maps the entire body onto the feet, treating the physical, mental, and emotional body.
+                    An energy healing practice, hands-on or distance, working with the body's life force energy.
                   </p>
                 </motion.div>
 

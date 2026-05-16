@@ -24,7 +24,7 @@ export default function Contact() {
               Please contact us directly using the information below.
             </p>
             <div className="grid gap-8">
-              <Info icon={<MapPin aria-hidden="true" />} title="Location" text="123 Wellness Way, Sedona, AZ 86336" />
+              <Info icon={<MapPin aria-hidden="true" />} title="Location" text="Kenmore, WA and Everett, WA" />
               <Info icon={<Phone aria-hidden="true" />} title="Phone" text="555-123-4567" />
               <Info icon={<Mail aria-hidden="true" />} title="Email" text="hello@transformationalzone.com" />
               <Info icon={<Clock aria-hidden="true" />} title="Hours" text="Mon–Fri 9am–6pm" />

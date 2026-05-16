@@ -299,7 +299,7 @@ export default function Services() {
                   <div className="space-y-4">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6">
                       <p className="font-heading text-primary text-xl">
-                        Your birthday age = your price
+                        Your birthday age = your price Foot Zone or Reiki
                       </p>
                       <p className="font-heading text-primary text-lg sm:text-xl sm:text-right">
                         ex: 30th birthday = ${PRICING.specials.birthday_example}
@@ -308,7 +308,7 @@ export default function Services() {
 
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 sm:gap-6">
                       <p className="font-heading text-primary text-xl">
-                        Years of recovery = your price
+                        Years of recovery = your price Foot Zone or Reiki
                       </p>
                       <p className="font-heading text-primary text-lg sm:text-xl sm:text-right">
                         ex: 20 years of recovery = ${PRICING.specials.recovery_example}
