@@ -12,6 +12,12 @@ const testimonials = [
     name: "Laura",
     location: "Seattle, WA",
   },
+  {
+    quote: "Hi everyone! I am actually very sensitive to heat/humidity and was a little worried I wouldn't be able to handle it, but there is a comfortable chair inside the sauna to sit on and I was able to just close my eyes and meditate to the music Donna had playing. It was amazing and I felt refreshed afterwards. ❤️",
+    name: "Audra",
+    location: "Kenmore, WA",
+  },
+
 ];
 
 export function TestimonialCarousel() {
