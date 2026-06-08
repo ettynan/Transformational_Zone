@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       // Starts Vite preview server on port 4173 after the build step
-      startServerCommand: "npm run preview", 
+      startServerCommand: "cd Transformational_Zone && npm run preview", 
       // Scans specific pages built for the project
       url: [
         "http://localhost:4173/",
