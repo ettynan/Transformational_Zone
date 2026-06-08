@@ -29,5 +29,4 @@ jobs:
         uses: treosh/lighthouse-ci-action@v12
         with:
           # Path updated to .cjs to match the renamed file
-          configPath: "Transformational_Zone/.lighthouserc.cjs"
-          workingDirectory: "Transformational_Zone"
+          configPath: ".lighthouserc.cjs"
