@@ -30,3 +30,4 @@ jobs:
         with:
           # Path updated to .cjs to match the renamed file
           configPath: "Transformational_Zone/.lighthouserc.cjs"
+          workingDirectory: "Transformational_Zone"
