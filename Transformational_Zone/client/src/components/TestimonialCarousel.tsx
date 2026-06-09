@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { sanityClient } from "../lib/sanity";
 
-const testimonials = [
+const fallbackTestimonials = [
   {
     quote: "I had a distance Reiki session with Donna on a day I was feeling pretty under the weather with a 24-hour flu. I went in mostly hoping for a little support and was pleasantly surprised by how much lighter and more energized I felt afterward. Even though my body was still processing being sick, my energy and clarity for the rest of the day were noticeably better. The session felt calming and supportive, and it was clear a lot of care and intention went into it. I'm very grateful for the boost and would happily book again.",
     name: "Andrea",
@@ -17,13 +18,43 @@ const testimonials = [
     name: "Audra",
     location: "Kenmore, WA",
   },
-
 ];
 
+type Testimonial = {
+  quote: string;
+  name: string;
+  location: string;
+};
+
 export function TestimonialCarousel() {
+  const [testimonials, setTestimonials] =
+    useState<Testimonial[]>(fallbackTestimonials);
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
+  useEffect(() => {
+    sanityClient
+      .fetch<Testimonial[]>(
+        `*[_type == "testimonial"] | order(_createdAt asc) {
+          quote,
+          name,
+          location
+        }`
+      )
+      .then((data) => {
+        if (data.length > 0) {
+          setTestimonials(data);
+          setIndex(0);
+        }
+      })
+      .catch((error) => {
+        console.error(
+          "Failed to load testimonials from Sanity:",
+          error
+        );
+      });
+  }, []);
+  
   useEffect(() => {
     if (testimonials.length <= 1 || isPaused) return;
 
@@ -32,7 +63,7 @@ export function TestimonialCarousel() {
     }, 7000);
 
     return () => clearInterval(timer);
-  }, [isPaused]);
+  }, [testimonials.length, isPaused]);
 
   return (
     <div className="flex items-start gap-6">
