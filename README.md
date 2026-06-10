@@ -253,13 +253,108 @@ Result:
 
 ---
 
+## Step 10 - Create Service Schemas
+
+Created individual schemas for:
+
+```text
+schemaTypes/reiki.ts
+schemaTypes/footZone.ts
+schemaTypes/steamSauna.ts
+```
+
+Purpose:
+
+* Allow service content to be edited through Sanity
+* Preserve existing website layout and styling
+* Limit editable content to service descriptions, pricing, and duration information
+
+Fields added:
+
+### Reiki
+
+```text
+Description
+Price
+Distance Reiki Price
+Duration
+```
+
+### Foot Zone
+
+```text
+Description
+Price
+In-Home Price
+Duration
+```
+
+### Steam Sauna
+
+```text
+Description
+Price
+Combo Price
+Duration
+Combo Duration
+```
+
+Preview titles were configured so service documents display as:
+
+```text
+Reiki
+Foot Zone
+Steam Sauna
+```
+
+within the Sanity Studio navigation.
+
+---
+
+## Step 11 - Connect Service Content to React Website
+
+Modified:
+
+```text
+Services.tsx
+```
+
+Changes:
+
+1. Added Sanity client integration.
+2. Added service-specific content types.
+3. Added React state for:
+
+   * Reiki
+   * Foot Zone
+   * Steam Sauna
+4. Added Sanity queries to retrieve service content.
+5. Added fallback values for:
+
+   * Descriptions
+   * Prices
+   * Durations
+6. Preserved existing page structure and styling.
+
+Description behavior:
+
+* If content exists in Sanity, website displays Sanity content.
+* If content is unavailable, original hardcoded content is displayed.
+
+Pricing and duration values now support updates through Sanity while maintaining fallback values within the application.
+
+---
+
 ## Current Status
 
 Completed:
 
 - Sanity installation
 - Testimonial schema
-- Sanity Studio
+- Testimonial CMS integration
+- Service schemas
+- Service CMS integration
+- Sanity Studio configuration
 - Test content creation
 - React integration
 - Successful content retrieval
@@ -267,12 +362,11 @@ Completed:
 Remaining:
 
 - Migrate remaining testimonials
-- Create Services schema
 - Create Packages schema
 - Create Specials schema
 - Create Add-ons schema
 - Create Business Settings schema
-- Remove hardcoded content after migration is complete
+- Remove hardcoded fallback content after migration is complete
 
 ## Long-Term Goal
 
