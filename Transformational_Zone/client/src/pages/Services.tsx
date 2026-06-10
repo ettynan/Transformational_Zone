@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { SectionHeader } from "@/components/SectionHeader";
 import { motion } from "framer-motion";
+import { sanityClient } from "../lib/sanity";
 
 /**
  * Centralized pricing configuration
- * Change prices/durations HERE ONLY
  */
 const PRICING = {
   reiki: {
@@ -54,7 +54,79 @@ const PRICING = {
   },
 };
 
+type ReikiContent = {
+  description?: string;
+  price?: string;
+  distancePrice?: string;
+  duration?: string;
+};
+
+type FootZoneContent = {
+  description?: string;
+  price?: string;
+  inHomePrice?: string;
+  duration?: string;
+};
+
+type SteamSaunaContent = {
+  description?: string;
+  price?: string;
+  comboPrice?: string;
+  duration?: string;
+  comboDuration?: string;
+};
+
+function price(value: string | undefined, fallback: number) {
+  return value ? `$${value}` : `$${fallback}`;
+}
+
+function text(value: string | undefined, fallback: string | number) {
+  return value || fallback;
+}
+
 export default function Services() {
+  const [reiki, setReiki] = useState<ReikiContent | null>(null);
+  const [footZone, setFootZone] = useState<FootZoneContent | null>(null);
+  const [steamSauna, setSteamSauna] = useState<SteamSaunaContent | null>(null);
+
+  useEffect(() => {
+    Promise.all([
+      sanityClient.fetch<ReikiContent | null>(
+        `*[_type == "reiki"][0] {
+          description,
+          price,
+          distancePrice,
+          duration
+        }`
+      ),
+      sanityClient.fetch<FootZoneContent | null>(
+        `*[_type == "footZone"][0] {
+          description,
+          price,
+          inHomePrice,
+          duration
+        }`
+      ),
+      sanityClient.fetch<SteamSaunaContent | null>(
+        `*[_type == "steamSauna"][0] {
+          description,
+          price,
+          comboPrice,
+          duration,
+          comboDuration
+        }`
+      ),
+    ])
+      .then(([reikiData, footZoneData, steamSaunaData]) => {
+        setReiki(reikiData);
+        setFootZone(footZoneData);
+        setSteamSauna(steamSaunaData);
+      })
+      .catch((error) => {
+        console.error("Failed to load service content from Sanity:", error);
+      });
+  }, []);
+  
   useEffect(() => {
     if (window.location.hash) {
       const id = window.location.hash.replace("#", "");
@@ -104,12 +176,20 @@ export default function Services() {
               <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
                 Reiki
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                Reiki is a gentle energy healing technique based on the premise that a practitioner can channel universal energy to support balance and well-being throughout the body.
-              </p>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                Through light touch or hands placed just above the body, Reiki promotes deep relaxation, helps reduce stress, and supports the body’s natural healing processes. It is calming, non-invasive, and suitable for all ages.
-              </p>
+              {reiki?.description ? (
+                <p className="text-stone-600 leading-relaxed mb-6 whitespace-pre-line">
+                  {reiki.description}
+                </p>
+              ) : (
+                <>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    Reiki is a gentle energy healing technique based on the premise that a practitioner can channel universal energy to support balance and well-being throughout the body.
+                  </p>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    Through light touch or hands placed just above the body, Reiki promotes deep relaxation, helps reduce stress, and supports the body’s natural healing processes. It is calming, non-invasive, and suitable for all ages.
+                  </p>
+                </>
+              )}
               <ul className="space-y-2 mb-8">
                 {[
                   "Promotes deep relaxation",
@@ -124,13 +204,13 @@ export default function Services() {
                 ))}
               </ul>
               <p className="text-xl font-heading text-stone-800">
-                ${PRICING.reiki.price}{" "}
+                {price(reiki?.price, PRICING.reiki.price)}{" "}
                 <span className="text-sm font-sans text-stone-500 font-normal">
-                  / {PRICING.reiki.duration} minutes
+                  / {text(reiki?.duration, PRICING.reiki.duration)} minutes
                 </span>
               </p>
               <p className="text-stone-800 text-base mt-4">
-                Distance Reiki (includes phone call or emailed report) - ${PRICING.reiki.distance_price}
+                Distance Reiki (includes phone call or emailed report) - {price(reiki?.distancePrice, PRICING.reiki.distance_price)}
               </p>
             </motion.div>
 
@@ -181,12 +261,20 @@ export default function Services() {
               <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
                 Foot Zone
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                Footzoning is a precise and intricate method of treating the physical, mental, and emotional body through the signal system in the feet.
-              </p>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                A zone balance helps to open the signal pathways in the body, allowing it to return to its natural state of health.
-              </p>
+              {footZone?.description ? (
+                <p className="text-stone-600 leading-relaxed mb-6 whitespace-pre-line">
+                  {footZone.description}
+                </p>
+              ) : (
+                <>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    Footzoning is a precise and intricate method of treating the physical, mental, and emotional body through the signal system in the feet.
+                  </p>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    A zone balance helps to open the signal pathways in the body, allowing it to return to its natural state of health.
+                  </p>
+                </>
+              )}
               <ul className="space-y-2 mb-8">
                 {[
                   "Aligns structural body",
@@ -201,13 +289,13 @@ export default function Services() {
                 ))}
               </ul>
               <p className="text-xl font-heading text-stone-800">
-                ${PRICING.footzoning.price}{" "}
+                {price(footZone?.price, PRICING.footzoning.price)}{" "}
                 <span className="text-sm font-sans text-stone-500 font-normal">
-                  / {PRICING.footzoning.duration} minutes
+                  / {text(footZone?.duration, PRICING.footzoning.duration)} minutes
                 </span>
               </p>
               <p className="text-stone-800 text-base mt-4">
-                In-Home Foot Zone (within 20 miles of Kenmore) - ${PRICING.footzoning.inhome_price}
+                In-Home Foot Zone (within 20 miles of Kenmore) - {price(footZone?.inHomePrice, PRICING.footzoning.inhome_price)}
               </p>
             </motion.div>
           </section>
@@ -230,12 +318,20 @@ export default function Services() {
               <h2 className="font-heading text-3xl md:text-4xl text-stone-800 mb-6">
                 Steam Sauna
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                Steam Sauna therapy is a heat-based treatment that uses warm steam to open pores, promote sweating, and support the body’s natural healing processes.
-              </p>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                The moist heat helps relax muscles, improve circulation, and ease tension while creating a calming, restorative environment. It can be both invigorating and deeply soothing, making it an effective way to reset.
-              </p>
+              {steamSauna?.description ? (
+                <p className="text-stone-600 leading-relaxed mb-6 whitespace-pre-line">
+                  {steamSauna.description}
+                </p>
+              ) : (
+                <>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    Steam Sauna therapy is a heat-based treatment that uses warm steam to open pores, promote sweating, and support the body’s natural healing processes.
+                  </p>
+                  <p className="text-stone-600 leading-relaxed mb-6">
+                    The moist heat helps relax muscles, improve circulation, and ease tension while creating a calming, restorative environment. It can be both invigorating and deeply soothing, making it an effective way to reset.
+                  </p>
+                </>
+              )}
               <ul className="space-y-2 mb-8">
                 {[
                   "Relieves muscle tension",
@@ -250,14 +346,13 @@ export default function Services() {
                 ))}
               </ul>
               <p className="text-xl font-heading text-stone-800">
-                ${PRICING.sauna.price}{" "}
+                {price(steamSauna?.price, PRICING.sauna.price)}{" "}
                 <span className="text-sm font-sans text-stone-500 font-normal">
-                  / {PRICING.sauna.duration} minutes
+                  / {text(steamSauna?.duration, PRICING.sauna.duration)} minutes
                 </span>
               </p>
               <p className="text-stone-800 text-base mt-4">
-                Combined with Foot Zone ({PRICING.sauna.combo_duration} mins) - ${PRICING.sauna.combo_price}
-              </p>
+              Combined with Foot Zone ({text(steamSauna?.comboDuration, PRICING.sauna.combo_duration)} mins) - {price(steamSauna?.comboPrice, PRICING.sauna.combo_price)}              </p>
             </motion.div>
 
             <motion.div
